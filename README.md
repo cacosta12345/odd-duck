@@ -10,7 +10,7 @@ This is the Odd-Duck Project. Added html, js, css
 
 ### Lighthouse Accessibility Report Score
 
-* Lighthouse score for Lab 9!
+* Lighthouse score for Lab 11!
 
   ![Lighthouse Score](images/lab11.PNG)
 
