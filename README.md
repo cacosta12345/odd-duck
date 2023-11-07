@@ -2,7 +2,7 @@
 
 ## Odd-Duck
 
-This is the Odd-Duck Project. Added html, js, css
+This is the Odd-Duck Project. Today I added a chart to display the results. Updated app.js to filter previous image to ensure no consequtive images render.
 
 ### Author: Christopher Acosta
 
@@ -10,16 +10,16 @@ This is the Odd-Duck Project. Added html, js, css
 
 ### Lighthouse Accessibility Report Score
 
-* Lighthouse score for Lab 11!
+* Lighthouse score for Lab 12!
 
-  ![Lighthouse Score](images/lab11.PNG)
+  ![Lighthouse Score](images/lab12.PNG)
 
 ### Reflections and Comments
 
 #### Reading Journal entry
 
-* The lab was not so hard. John's lecture prepped us pretty good on how to go about doing it. Working with grids is a lot easier than working with flex box, so I didn't have to spend so much time messing with it like before. I'm definitely getting more comfortable with my js.
+* The lab was a little difficult. I was having trouble coming up with logic to not render the same item consequtively. I tried out some ideas before I asked my brother to take a look. He helped me come up with the answer. In the renderItems function, I declared a new set to store the previously made images and using a while loop, detect if they were just used before. Adding a chart wasn't too difficult. I followed John's example closely and successfully rendered a new chart with the data in my textContent section. The page still looks wonky if you scale it up or down though. I'm not too sure how to fix that. All in all the lab went good.
 
 #### Notes
 
-* Grid is better than flexbox
+* Using databases is a huge plus. Not having to code out the charts saves a ton of time
