@@ -20,25 +20,25 @@ function Items(name, image){
     state.allImages.push(this);
 };
 
-new Items('r2d2 luggage bag', 'images/bag.jpg');
-new Items('banana slicer', 'images/banana.jpg');
-new Items('tablet/toilet paper holder', 'images/bathroom.jpg');
-new Items('toe-less rubber rain-boots', 'images/boots.jpg');
-new Items('coffee/breakfast maker', 'images/breakfast.jpg');
-new Items('meatball flavored bubble-gum', 'images/bubblegum.jpg');
-new Items('chair with rounded seat', 'images/chair.jpg');
-new Items('cthulu toy', 'images/cthulhu.jpg');
-new Items('duck bill mask for dogs', 'images/dog-duck.jpg');
-new Items('canned dragon meat', 'images/dragon.jpg');
-new Items('utensils pen topper', 'images/pen.jpg');
-new Items('sweeping dog boots', 'images/pet-sweep.jpg');
-new Items('pizza slicer scizzors', 'images/scissors.jpg');
-new Items('shark sleeping bag', 'images/shark.jpg');
-new Items('baby sweeping pajamas', 'images/sweep.png');
-new Items('tauntaun sleeping bag', 'images/tauntaun.jpg');
-new Items('canned unicorn meat', 'images/unicorn.jpg');
-new Items('watering can', 'images/water-can.jpg');
-new Items('wine glass', 'images/wine-glass.jpg');
+new Items('R2D2 Luggage', 'images/bag.jpg');
+new Items('Banana Slicer', 'images/banana.jpg');
+new Items('Tablet/Toilet Roll Stand', 'images/bathroom.jpg');
+new Items('Toe-less Rain Boots', 'images/boots.jpg');
+new Items('All-In-One Breakfast', 'images/breakfast.jpg');
+new Items('Meatball Bubble-gum', 'images/bubblegum.jpg');
+new Items('Round Seat Chair', 'images/chair.jpg');
+new Items('Cthulu Toy', 'images/cthulhu.jpg');
+new Items('Duck-bill Dog Mask', 'images/dog-duck.jpg');
+new Items('Dragon Meat', 'images/dragon.jpg');
+new Items('Kitchen Utensils Pet Topper', 'images/pen.jpg');
+new Items('Sweeping Dog Boots', 'images/pet-sweep.jpg');
+new Items('Pizza Slicer Scizzors', 'images/scissors.jpg');
+new Items('Shark Sleeping Bag', 'images/shark.jpg');
+new Items('Baby Sweeping Pajamas', 'images/sweep.png');
+new Items('Tauntaun Sleeping Bag', 'images/tauntaun.jpg');
+new Items('Unicorn Meat', 'images/unicorn.jpg');
+new Items('Watering Can', 'images/water-can.jpg');
+new Items('Wine Glass', 'images/wine-glass.jpg');
 
 function renderItems(){
     function randomImage(){
@@ -74,8 +74,15 @@ function renderButton(){
 
 function renderResults(){
     console.log('render results firing');
-    let resultsList = resultsContainer.createElement('ul');
+    let resultsList = document.createElement('ul');
     resultsContainer.appendChild(resultsList);
+
+    for (let i = 0; i < state.allImages.length; i++) {
+        let listItems = document.createElement('li');
+        listItems.textContent = `${state.allImages[i].name}: ${state.allImages[i].votes}`; 
+        resultsList.appendChild(listItems); 
+    }
+    
     
 }
 
