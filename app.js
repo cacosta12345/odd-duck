@@ -4,8 +4,8 @@ const button = document.getElementById('resultsButton');
 const canvasContainer = document.getElementById('canvas');
 
 const image1 = document.querySelector('#images img:first-child');
-const image2 = document.querySelector('#images img:nth-child(2)');
-const image3 = document.querySelector('#images img:nth-child(3)');
+const image2 = document.querySelector('#images img.img2');
+const image3 = document.querySelector('#images img.img3');
 
 let state = {
   clicksSoFar: 0,
@@ -20,7 +20,7 @@ function Items(name, image) {
   this.votes = 0;
   this.views = 0;
   state.allImages.push(this);
-};
+}
 
 new Items('R2D2 Luggage', 'images/bag.jpg');
 new Items('Banana Slicer', 'images/banana.jpg');
@@ -41,6 +41,19 @@ new Items('Tauntaun Sleeping Bag', 'images/tauntaun.jpg');
 new Items('Unicorn Meat', 'images/unicorn.jpg');
 new Items('Watering Can', 'images/water-can.jpg');
 new Items('Wine Glass', 'images/wine-glass.jpg');
+
+function initialize() {
+  for (let i = 0; i < state.allImages.length; i++) {
+    let imagesString = localStorage.getItem(i.toString());
+    if (imagesString === null) {
+      continue;
+    }
+    let parsedImage = JSON.parse(imagesString);
+    state.allImages[i].name = parsedImage.name;
+    state.allImages[i].views = parsedImage.views;
+    state.allImages[i].votes = parsedImage.votes;
+  }
+}
 
 function renderItems() {
   function randomImage() {
@@ -67,7 +80,7 @@ function renderItems() {
   }
   currentSet.add(item3);
 
-  state.renderedImages = currentSet
+  state.renderedImages = currentSet;
 
   image1.src = state.allImages[item1].imageFile;
   image1.alt = state.allImages[item1].name;
@@ -85,7 +98,7 @@ function renderItems() {
 
 function renderButton() {
   button.disabled = false;
-};
+}
 
 function renderResults() {
   console.log('render results firing');
@@ -98,7 +111,7 @@ function renderResults() {
   for (let i = 0; i < state.allImages.length; i++) {
     let listItems = document.createElement('li');
     listItems.textContent = `${state.allImages[i].name}: ${state.allImages[i].votes}`;
-    resultsList.appendChild(listItems);
+    // resultsList.appendChild(listItems);
     names.push(state.allImages[i].name);
     votes.push(state.allImages[i].votes);
     views.push(state.allImages[i].views);
@@ -109,19 +122,19 @@ function renderResults() {
     labels: names,
     datasets: [
       {
-        label: "Votes",
+        label: 'Votes',
         data: votes,
         borderWidth: 1,
         backgroundColor: ['blue']
       },
       {
-        label: "Views",
+        label: 'Views',
         data: views,
         borderWidth: 1,
         backgroundColor: ['red']
       }
     ]
-  }
+  };
   const config = {
     type: 'bar',
     data: data,
@@ -132,10 +145,10 @@ function renderResults() {
         }
       }
     }
-  }
+  };
 
   const myChart = new Chart(canvasContainer, config);
-};
+}
 
 
 function handleClick(e) {
@@ -143,6 +156,7 @@ function handleClick(e) {
   for (let i = 0; i < state.allImages.length; i++) {
     if (itemName === state.allImages[i].name) {
       state.allImages[i].votes++;
+      localStorage.setItem(i.toString(), JSON.stringify(state.allImages[i]));
       break;
     }
   }
@@ -152,22 +166,23 @@ function handleClick(e) {
   if (state.clicksSoFar >= state.clicksAllowed) {
     removeEventListener();
     renderButton();
+
   } else {
     renderItems();
   }
-
 
 }
 
 function wiredEventListeners() {
   imageContainer.addEventListener('click', handleClick);
-  button.addEventListener('click', renderResults)
+  button.addEventListener('click', renderResults);
 }
 
 function removeEventListener() {
-  resultsContainer.removeEventListener('click', handleClick);
+  imageContainer.removeEventListener('click', handleClick);
 }
 
-
+initialize();
 renderItems();
 wiredEventListeners();
+

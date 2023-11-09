@@ -9,21 +9,30 @@
     <title>Odd-Duck</title>
 </head>
 <body>
+  <header>
+    <h1>Odd Duck</h1>
+  </header>
     <div class="container">
-        <div id="results" class="Results">
-            <button id="resultsButton" class="button" type="button" disabled>Results</button>
-        </div>
         <div id="images" class="Images">
+          <div>
             <img/>
-            <img/>
-            <img/>
+          </div>
+          <div>
+            <img class="img2"/>
+          </div>
+          <div>
+            <img class="img3"/>
+          </div>
         </div>
         <div class="Text-Content">
             <p>Vote for your favorite!</p>
-            <canvas id="canvas"></canvas>
         </div>
+        <div id="results" class="Results">
+          <button id="resultsButton" class="button" type="button" disabled>Results</button>
+          <canvas id="canvas"></canvas>
+      </div>
         <div class="Footer">&copy; Chris Acosta 2023</div>
-        <div class="Title"><h1>Odd Duck</h1></div>
+
     </div>
     <script src="app.js"></script>
 </body>

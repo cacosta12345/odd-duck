@@ -2,7 +2,7 @@
 
 ## Odd-Duck
 
-This is the Odd-Duck Project. Today I added a chart to display the results. Updated app.js to filter previous image to ensure no consequtive images render.
+This is the Odd-Duck Project. Today I added functionality to set local storage and get local storage and fixed the layout of the page a bit.
 
 ### Author: Christopher Acosta
 
@@ -10,16 +10,14 @@ This is the Odd-Duck Project. Today I added a chart to display the results. Upda
 
 ### Lighthouse Accessibility Report Score
 
-* Lighthouse score for Lab 12!
+* Lighthouse score for Lab 13!
 
-  ![Lighthouse Score](images/lab12.PNG)
+  ![Lighthouse Score](images/lab13.PNG)
 
 ### Reflections and Comments
 
 #### Reading Journal entry
 
-* The lab was a little difficult. I was having trouble coming up with logic to not render the same item consequtively. I tried out some ideas before I asked my brother to take a look. He helped me come up with the answer. In the renderItems function, I declared a new set to store the previously made images and using a while loop, detect if they were just used before. Adding a chart wasn't too difficult. I followed John's example closely and successfully rendered a new chart with the data in my textContent section. The page still looks wonky if you scale it up or down though. I'm not too sure how to fix that. All in all the lab went good.
+* The lab was difficult at first. I understood the concept of localStorage set and get, but I was confused where to use it. After some trial and error I got it. I also fixed some page layout issues. The lab took awhile to start but quick to finish once I understood it better.
 
 #### Notes
-
-* Using databases is a huge plus. Not having to code out the charts saves a ton of time
