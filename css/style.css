@@ -1,14 +1,37 @@
 * {
-    background-color: rgb(231, 229, 229);
+    background-color: rgb(180, 180, 194);
 }
 
-.container {
+#duck {
+  width: 70px;
+  height: 70px;
 
-
-  }
-
-.Results button {
+  position: absolute;
+  animation: mymove 10s infinite;
+  animation-direction: alternate;
 }
+
+@keyframes mymove {
+  from {left: 0px;}
+  to {left: 100%;}
+}
+
+header {
+  position: relative;
+  grid-area: Title;
+  display: grid;
+  justify-content: center;
+  font-size: 50px;
+  font-weight: bold;
+  align-content: center;
+  font-style: italic;
+  margin: 30px;
+
+}
+header h1 {
+text-shadow: 2px 2px 8px rgb(82, 139, 243)
+}
+
 .Results {
     grid-area: Results;
     font-size: 20px;
@@ -85,16 +108,7 @@
     align-items: center;
 }
 
-header {
-    grid-area: Title;
-    display: grid;
-    justify-content: center;
-    font-size: 40px;
-    font-weight: bold;
-    align-content: center;
-    font-style: italic;
-    margin: 30px;
-}
+
 
 #images img {
     width: 350px;
